@@ -626,6 +626,45 @@
             color: var(--white);
         }
 
+        /* Message Tabs */
+        .message-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .message-tab {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .message-tab:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .message-tab.active {
+            background: var(--lemon-yellow);
+            border-color: var(--lemon-yellow);
+            color: var(--dark);
+        }
+
+        .message-content {
+            display: none;
+        }
+
+        .message-content.active {
+            display: block;
+        }
+
         .ceo-container {
             display: grid;
             grid-template-columns: 300px 1fr;
@@ -647,6 +686,7 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
         }
 
         .ceo-content h3 {
@@ -1134,27 +1174,57 @@
         </div>
     </section>
 
-    <!-- CEO Message Section -->
+    <!-- CEO/CTO Message Section -->
     <section class="ceo-message" id="ceo">
         <div class="container">
             <div class="section-header">
-                <span class="section-tag">CEO MESSAGE</span>
-                <h2 class="section-title">代表挨拶</h2>
+                <span class="section-tag">MESSAGE</span>
+                <h2 class="section-title">経営陣からのメッセージ</h2>
             </div>
-            <div class="ceo-container">
-                <div class="ceo-image">
-                    <img src="ceo.png" alt="代表取締役">
+
+            <!-- Tab Buttons -->
+            <div class="message-tabs">
+                <button class="message-tab active" data-tab="ceo">CEO メッセージ</button>
+                <button class="message-tab" data-tab="cto">CTO メッセージ</button>
+            </div>
+
+            <!-- CEO Message -->
+            <div class="message-content active" id="ceo-content">
+                <div class="ceo-container">
+                    <div class="ceo-image">
+                        <img src="ceo.png" alt="代表取締役">
+                    </div>
+                    <div class="ceo-content">
+                        <h3>代表取締役 高松 築（Takamatsu Kizuku）</h3>
+                        <p class="ceo-title">CEO</p>
+                        <p>
+                            弊社ウェブサイトをご覧いただき、ありがとうございます。<br><br>
+                            私たちは「AIの民主化」を本気で目指しています。大企業だけがテクノロジーの恩恵を受ける時代は、もう終わりにしなければなりません。<br><br>
+                            日本の企業の99%は中小企業です。この99%が元気にならなければ、日本の未来はありません。<br><br>
+                            「よくわからない」「うちには難しい」「予算がない」そんな声をこれまで何度も聞いてきました。だからこそ、私たちは「エンタープライズ品質を圧倒的低コストで」を掲げています。<br><br>
+                            一緒に、あなたのビジネスの未来を創りましょう。まずは雑談からでも構いません。お気軽にご相談ください。
+                        </p>
+                    </div>
                 </div>
-                <div class="ceo-content">
-                    <h3>代表取締役 高松 築（Takamatsu Kizuku）</h3>
-                    <p class="ceo-title">CEO</p>
-                    <p>
-                        弊社ウェブサイトをご覧いただき、ありがとうございます。<br><br>
-                        私たちは「AIの民主化」を本気で目指しています。大企業だけがテクノロジーの恩恵を受ける時代は、もう終わりにしなければなりません。<br><br>
-                        日本の企業の99%は中小企業です。この99%が元気にならなければ、日本の未来はありません。<br><br>
-                        「よくわからない」「うちには難しい」「予算がない」そんな声をこれまで何度も聞いてきました。だからこそ、私たちは「エンタープライズ品質を圧倒的低コストで」を掲げています。<br><br>
-                        一緒に、あなたのビジネスの未来を創りましょう。まずは雑談からでも構いません。お気軽にご相談ください。
-                    </p>
+            </div>
+
+            <!-- CTO Message -->
+            <div class="message-content" id="cto-content">
+                <div class="ceo-container">
+                    <div class="ceo-image">
+                        <img src="cto.png" alt="CTO">
+                    </div>
+                    <div class="ceo-content">
+                        <h3>関根 誠也（Sekine Masaya）</h3>
+                        <p class="ceo-title">CTO</p>
+                        <p>
+                            技術の力で、日本の中小企業を強くする。それが我々のミッションです。<br><br>
+                            AIやデータ分析は、もはや大企業だけのものではありません。クラウドの進化により、以前は数千万円かかっていたシステムが、今では数十分の一のコストで実現できるようになりました。<br><br>
+                            しかし、技術は手段であり、目的ではありません。お客様のビジネス課題を深く理解し、本当に必要な技術だけを、適切な形で導入する。それが私の技術者としての矜持です。<br><br>
+                            小規模な組織だからこそできるコンパクトな動きがあります。人員不足が叫ばれる昨今、まずは小さなところからでも、AIによる効率化のインパクトを感じていただきたいと思っています。<br><br>
+                            技術的なご相談はもちろん、「こんなことできるのかな？」という素朴な疑問でも大歓迎です。ぜひお声がけください。
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1228,7 +1298,7 @@
             <a href="#company">会社概要</a>
             <a href="#contact">お問い合わせ</a>
         </div>
-        <p class="copyright">&copy; 2025 ChikuData Corporation All Rights Reserved.</p>
+        <p class="copyright">&copy; 2026 ChikuData Corporation All Rights Reserved.</p>
     </footer>
 
     <script>
@@ -1290,6 +1360,22 @@
 
         document.querySelectorAll('section').forEach(section => {
             observer.observe(section);
+        });
+
+        // Message tab switching
+        document.querySelectorAll('.message-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active class from all tabs and contents
+                document.querySelectorAll('.message-tab').forEach(t => t.classList.remove('active'));
+                document.querySelectorAll('.message-content').forEach(c => c.classList.remove('active'));
+
+                // Add active class to clicked tab
+                tab.classList.add('active');
+
+                // Show corresponding content
+                const tabId = tab.getAttribute('data-tab');
+                document.getElementById(tabId + '-content').classList.add('active');
+            });
         });
     </script>
 </body>
